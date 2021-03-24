@@ -14,7 +14,7 @@ type LogicIntServer struct{}
 // SignIn 设备登录
 func (*LogicIntServer) ConnSignIn(ctx context.Context, req *pb.ConnSignInReq) (*pb.ConnSignInResp, error) {
 	return &pb.ConnSignInResp{},
-		service.AuthService.SignIn(ctx, req.UserId, req.DeviceId, req.Token, req.ConnAddr, req.ConnFd, req.ClientAddr)
+		service.AuthService.SignIn(ctx, req.UserId, req.DeviceId, req.Token, req.ConnAddr, req.ClientAddr)
 }
 
 // Sync 设备同步消息
@@ -44,6 +44,16 @@ func (*LogicIntServer) SendMessage(ctx context.Context, req *pb.SendMessageReq) 
 		return nil, err
 	}
 	return &pb.SendMessageResp{Seq: seq}, nil
+}
+
+// PushToRoom 推送房间
+func (s *LogicIntServer) PushToRoom(ctx context.Context, req *pb.PushToRoomReq) (*pb.PushToRoomResp, error) {
+	panic("implement me")
+}
+
+// PushAll 全服推送
+func (s *LogicIntServer) PushAll(ctx context.Context, req *pb.PushAllReq) (*pb.PushAllResp, error) {
+	panic("implement me")
 }
 
 // GetDevice 获取设备信息

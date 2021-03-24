@@ -107,7 +107,6 @@ func TestLogicExtServer_CreateGroup(t *testing.T) {
 		&pb.CreateGroupReq{
 			Name:         "10",
 			Introduction: "10",
-			Type:         1,
 			Extra:        "10",
 		})
 	if err != nil {

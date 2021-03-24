@@ -18,17 +18,11 @@ func initProdConf() {
 		BusinessRPCAddrs: "addrs:///127.0.0.1:50300",
 	}
 
-	TCPConn = TCPConnConf{
+	Conn = ConnConf{
 		TCPListenAddr: 8080,
+		WSListenAddr:  ":8081",
 		RPCListenAddr: ":50100",
 		LocalAddr:     "127.0.0.1:50100",
-		LogicRPCAddrs: "addrs:///127.0.0.1:50000",
-	}
-
-	WSConn = WSConnConf{
-		WSListenAddr:  ":8081",
-		RPCListenAddr: ":50200",
-		LocalAddr:     "127.0.0.1:50200",
 		LogicRPCAddrs: "addrs:///127.0.0.1:50000",
 	}
 

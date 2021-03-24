@@ -6,8 +6,7 @@ import (
 
 var (
 	Logic    LogicConf
-	TCPConn  TCPConnConf
-	WSConn   WSConnConf
+	Conn     ConnConf
 	Business BusinessConf
 )
 
@@ -24,15 +23,8 @@ type LogicConf struct {
 }
 
 // TCPConnConf配置
-type TCPConnConf struct {
+type ConnConf struct {
 	TCPListenAddr int
-	RPCListenAddr string
-	LocalAddr     string
-	LogicRPCAddrs string
-}
-
-// WS配置
-type WSConnConf struct {
 	WSListenAddr  string
 	RPCListenAddr string
 	LocalAddr     string

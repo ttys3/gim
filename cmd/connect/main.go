@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"gim/config"
-	"gim/internal/tcp_conn"
+	"gim/internal/connect"
 	"gim/pkg/logger"
 	"gim/pkg/pb"
 	"gim/pkg/rpc"
@@ -20,15 +20,21 @@ func main() {
 	// 启动rpc服务
 	go func() {
 		defer util.RecoverPanic()
-		tcp_conn.StartRPCServer()
+		connect.StartRPCServer()
 	}()
 
 	// 初始化Rpc Client
-	rpc.InitLogicIntClient(config.TCPConn.LogicRPCAddrs)
+	rpc.InitLogicIntClient(config.Conn.LogicRPCAddrs)
 
-	// 启动长链接服务器
+	// 启动TCP长链接服务器
 	go func() {
-		tcp_conn.StartTCPServer()
+		connect.StartTCPServer()
+	}()
+
+	// 启动WebSocket长链接服务器
+	go func() {
+		defer util.RecoverPanic()
+		connect.StartWSServer(config.Conn.WSListenAddr)
 	}()
 
 	c := make(chan os.Signal, 0)
@@ -36,6 +42,6 @@ func main() {
 
 	s := <-c
 	logger.Logger.Info("server stop start", zap.Any("signal", s))
-	rpc.LogicIntClient.ServerStop(context.TODO(), &pb.ServerStopReq{ConnAddr: config.TCPConn.LocalAddr})
+	rpc.LogicIntClient.ServerStop(context.TODO(), &pb.ServerStopReq{ConnAddr: config.Conn.LocalAddr})
 	logger.Logger.Info("server stop end")
 }

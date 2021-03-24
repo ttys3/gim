@@ -96,3 +96,11 @@ func (s *pushService) PushToGroup(ctx context.Context, groupId int64, code pb.Pu
 	}
 	return nil
 }
+
+func (s *pushService) PushToRoom() {
+
+}
+
+func (s *pushService) PushAll() {
+
+}
