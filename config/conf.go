@@ -23,7 +23,7 @@ type LogicConf struct {
 }
 
 // TCPConnConf配置
-type ConnConf struct {
+type ConnectConf struct {
 	TCPListenAddr int
 	WSListenAddr  string
 	RPCListenAddr string

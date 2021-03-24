@@ -18,7 +18,7 @@ func initLocalConf() {
 		BusinessRPCAddrs: "addrs:///127.0.0.1:50300",
 	}
 
-	Conn = ConnConf{
+	Conn = ConnectConf{
 		TCPListenAddr: 8080,
 		WSListenAddr:  ":8081",
 		RPCListenAddr: ":50100",
