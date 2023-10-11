@@ -26,11 +26,8 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/stretchr/testify v1.6.1 // indirect
 	go.uber.org/zap v1.15.0
-	golang.org/x/crypto v0.0.0-20200709230013-948cd5f35899 // indirect
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b // indirect
-	golang.org/x/net v0.0.0-20200707034311-ab3426394381 // indirect
-	golang.org/x/text v0.3.3 // indirect
-	golang.org/x/tools v0.0.0-20200711155855-7342f9734a7d // indirect
+	golang.org/x/net v0.17.0 // indirect
 	google.golang.org/genproto v0.0.0-20200709005830-7a2ca40e9dc3
 	google.golang.org/grpc v1.30.0
 	google.golang.org/protobuf v1.25.0
